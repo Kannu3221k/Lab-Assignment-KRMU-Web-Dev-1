@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanishk's GPU Haven | High-Performance Graphics Cards</title>
+    <meta name="description" content="Premium graphics cards for gaming and workstation. Shop the latest RTX and Radeon GPUs.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS Variables & Reset --- */
+        :root {
+            --primary-color: #00ff88; /* Neon Green */
+            --secondary-color: #7000ff; /* Neon Purple */
+            --bg-dark: #0f1115;
+            --bg-card: #181b21;
+            --text-light: #ffffff;
+            --text-gray: #a0a0a0;
+            --border-color: #2a2e35;
+            --font-heading: 'Orbitron', sans-serif;
+            --font-body: 'Roboto', sans-serif;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 1rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 4rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* --- Accessibility --- */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary-color);
+            color: #000;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* --- Header & Navigation (Flexbox) --- */
+        header {
+            background-color: rgba(15, 17, 21, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            padding: var(--spacing-md) var(--spacing-lg);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-lg);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.25s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-light);
+            transition: 0.3s;
+        }
+
+        /* --- Hero Section (Animation) --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1591488320449-011701bb6704?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: var(--spacing-lg);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeSlideUp 1s ease-out forwards;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            margin-bottom: var(--spacing-md);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #000;
+            padding: 12px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: all 0.25s ease;
+            border: 2px solid var(--primary-color);
+        }
+
+        .cta-btn:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.4);
+        }
+
+        /* --- Keyframe Animation --- */
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* --- Main Layout (Grid) --- */
+        .container {
+            max-width: 1400px;
+            margin: var(--spacing-xl) auto;
+            padding: 0 var(--spacing-lg);
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: var(--spacing-xl);
+        }
+
+        /* --- Sidebar / Filters --- */
+        aside.filters {
+            background-color: var(--bg-card);
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+            height: fit-content;
+            border: 1px solid var(--border-color);
+        }
+
+        .filter-group {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .filter-group h3 {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-light);
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 4px;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            color: var(--text-gray);
+            cursor: pointer;
+        }
+
+        .filter-option input {
+            margin-right: 10px;
+            accent-color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .filter-option:hover {
+            color: var(--text-light);
+        }
+
+        /* Price Slider Visual */
+        .price-range {
+            width: 100%;
+            margin-top: 10px;
+            height: 4px;
+            background: var(--border-color);
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .price-range::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: var(--primary-color);
+        }
+
+        /* --- Product Grid --- */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        /* --- Product Card --- */
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            border-color: var(--primary-color);
+        }
+
+        .card-img-container {
+            position: relative;
+            padding-top: 60%; /* Aspect ratio */
+            background-color: #252830;
+            overflow: hidden;
+        }
+
+        .card-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover .card-img {
+            transform: scale(1.05);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 4px 8px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+
+        .card-content {
+            padding: var(--spacing-md);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-category {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-light);
+        }
+
+        .card-specs {
+            display: flex;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .spec-item {
+            background: rgba(255,255,255,0.05);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        .card-footer {
+            margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .add-btn {
+            background: transparent;
+            border: 1px solid var(--text-light);
+            color: var(--text-light);
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .add-btn:hover {
+            background: var(--text-light);
+            color: #000;
+        }
+
+        /* --- Contact / Newsletter Section --- */
+        .newsletter {
+            background: linear-gradient(45deg, #1a1a1a, #0f1115);
+            padding: var(--spacing-xl) var(--spacing-lg);
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .newsletter h2 {
+            font-family: var(--font-heading);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        input[type="email"] {
+            flex: 1;
+            padding: 12px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+            color: white;
+        }
+
+        button[type="submit"] {
+            padding: 12px 24px;
+            background: var(--secondary-color);
+            border: none;
+            color: white;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button[type="submit"]:hover {
+            background: #8a2be2;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #000;
+            padding: var(--spacing-xl) var(--spacing-lg) var(--spacing-lg);
+            border-top: 2px solid var(--primary-color);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-heading);
+            color: var(--text-light);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--text-gray);
+            cursor: pointer;
+            transition: fill 0.2s;
+        }
+
+        .social-icons svg:hover {
+            fill: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid #222;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .trademark {
+            color: var(--primary-color);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- Responsive Breakpoints --- */
+        
+        /* Tablet (~768px) */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr; /* Stack sidebar on top */
+                gap: var(--spacing-md);
+            }
+
+            .filters {
+                display: flex;
+                flex-wrap: wrap;
+                gap: var(--spacing-lg);
+                justify-content: space-between;
+            }
+            
+            .nav-links {
+                display: none; /* In a real app, JS would toggle this */
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .form-container {
+                flex-direction: column;
+            }
+        }
+
+        /* Mobile (≤480px) */
+        @media (max-width: 480px) {
+            .hero {
+                height: 50vh;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .filters {
+                flex-direction: column;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr; /* Single column */
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <!-- Simple GPU Icon SVG -->
+                <svg viewBox="0 0 24 24">
+                    <path d="M4 6H20V18H4V6ZM2 4C2 2.89543 2.89543 2 4 2H20C21.1046 2 22 2.89543 22 4V18C22 19.1046 21.1046 20 20 20H4C2.89543 20 2 19.1046 2 18V4ZM6 8H9V11H6V8ZM15 8H18V11H15V8ZM6 13H9V16H6V13ZM15 13H18V16H15V13Z" />
+                </svg>
+                GPU HAVEN
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#brands">Brands</a></li>
+                <li><a href="#support">Support</a></li>
+            </ul>
+
+            <!-- Mobile Menu Icon (Visual Only) -->
+            <div class="menu-toggle" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Upgrade Your <span>Reality</span></h1>
+            <p>Experience next-gen gaming with the latest RTX 40-Series and Radeon RX 7000 cards. In stock and ready to ship.</p>
+            <a href="#main-content" class="cta-btn">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <div class="container">
+        
+        <!-- Sidebar Filters -->
+        <aside class="filters">
+            <div class="filter-group">
+                <h3>Manufacturer</h3>
+                <label class="filter-option">
+                    <input type="checkbox" checked> NVIDIA
+                </label>
+                <label class="filter-option">
+                    <input type="checkbox"> AMD
+                </label>
+                <label class="filter-option">
+                    <input type="checkbox"> Intel
+                </label>
+            </div>
+
+            <div class="filter-group">
+                <h3>VRAM</h3>
+                <label class="filter-option">
+                    <input type="checkbox"> 8 GB
+                </label>
+                <label class="filter-option">
+                    <input type="checkbox" checked> 12 GB
+                </label>
+                <label class="filter-option">
+                    <input type="checkbox"> 16 GB+
+                </label>
+            </div>
+
+            <div class="filter-group">
+                <h3>Price Range</h3>
+                <p style="color: #a0a0a0; font-size: 0.9rem; margin-bottom: 5px;">$200 - $2000</p>
+                <div class="price-range"></div>
+            </div>
+        </aside>
+
+        <!-- Product Grid -->
+        <main id="main-content">
+            <section class="product-grid">
+                
+                <!-- Product Card 1 -->
+                <article class="card">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1591489378430-ef2f3c529595?auto=format&fit=crop&w=500&q=80" alt="Nvidia RTX 4090 Graphics Card" class="card-img">
+                        <span class="card-badge">Best Seller</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-category">NVIDIA</div>
+                        <h2 class="card-title">GeForce RTX 4090 OC</h2>
+                        <div class="card-specs">
+                            <span class="spec-item">24GB GDDR6X</span>
+                            <span class="spec-item">DLSS 3</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">$1,699</span>
+                            <button class="add-btn" aria-label="Add RTX 4090 to cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product Card 2 -->
+                <article class="card">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1624705002806-5d72df90c319?auto=format&fit=crop&w=500&q=80" alt="AMD Radeon RX 7900 XTX" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-category">AMD</div>
+                        <h2 class="card-title">Radeon RX 7900 XTX</h2>
+                        <div class="card-specs">
+                            <span class="spec-item">24GB GDDR6</span>
+                            <span class="spec-item">FSR 3</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">$999</span>
+                            <button class="add-btn" aria-label="Add RX 7900 XTX to cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product Card 3 -->
+                <article class="card">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1555617981-d7031940cb7d?auto=format&fit=crop&w=500&q=80" alt="RTX 4070 Ti" class="card-img">
+                        <span class="card-badge">New</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-category">NVIDIA</div>
+                        <h2 class="card-title">GeForce RTX 4070 Ti</h2>
+                        <div class="card-specs">
+                            <span class="spec-item">12GB GDDR6X</span>
+                            <span class="spec-item">Ray Tracing</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">$799</span>
+                            <button class="add-btn" aria-label="Add RTX 4070 Ti to cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Product Card 4 -->
+                <article class="card">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=500&q=80" alt="RTX 3060" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-category">NVIDIA</div>
+                        <h2 class="card-title">GeForce RTX 3060</h2>
+                        <div class="card-specs">
+                            <span class="spec-item">12GB GDDR6</span>
+                            <span class="spec-item">Budget King</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">$299</span>
+                            <button class="add-btn" aria-label="Add RTX 3060 to cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
+
+                 <!-- Product Card 5 -->
+                 <article class="card">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1558486012-817176f84c6d?auto=format&fit=crop&w=500&q=80" alt="Intel Arc A770" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-category">INTEL</div>
+                        <h2 class="card-title">Intel Arc A770 LE</h2>
+                        <div class="card-specs">
+                            <span class="spec-item">16GB GDDR6</span>
+                            <span class="spec-item">XeSS</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">$349</span>
+                            <button class="add-btn" aria-label="Add Arc A770 to cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
+                
+                 <!-- Product Card 6 -->
+                 <article class="card">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=500&q=80" alt="RX 7800 XT" class="card-img">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-category">AMD</div>
+                        <h2 class="card-title">Radeon RX 7800 XT</h2>
+                        <div class="card-specs">
+                            <span class="spec-item">16GB GDDR6</span>
+                            <span class="spec-item">1440p Beast</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="price">$499</span>
+                            <button class="add-btn" aria-label="Add RX 7800 XT to cart">Add to Cart</button>
+                        </div>
+                    </div>
+                </article>
+
+            </section>
+        </main>
+    </div>
+
+    <!-- Newsletter / Contact Form -->
+    <section class="newsletter">
+        <h2>Stock Alerts</h2>
+        <p style="margin-bottom: 20px; color: var(--text-gray);">Get notified when prices drop or new stock arrives.</p>
+        <form class="form-container" action="#" onsubmit="alert('Thank you for subscribing!'); return false;">
+            <label for="email" style="display:none;">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Best Sellers</a></li>
+                    <li><a href="#">Workstation</a></li>
+                    <li><a href="#">Refurbished</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Order Tracking</a></li>
+                    <li><a href="#">Warranty</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Community</h4>
+                <div class="social-icons">
+                    <!-- Twitter Icon -->
+                    <svg viewBox="0 0 24 24"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+                    <!-- Facebook Icon -->
+                    <svg viewBox="0 0 24 24"><path d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"/></svg>
+                    <!-- Instagram Icon -->
+                    <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 <span class="trademark">Kanishk</span>. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
